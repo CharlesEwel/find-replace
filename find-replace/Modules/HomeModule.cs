@@ -12,7 +12,7 @@ namespace FindReplace
       Get["/"] = _ => View["index.cshtml"];
       Post["/new-phrase"] = _ => {
         Phrase newPhrase = new Phrase ();
-        string resultPhrase = newPhrase.CustomReplace(Request.Form["phrase-input"], Request.Form["word-replace"], Request.Form["new-word"], Request.Form["case-sensitivity"]);
+        string resultPhrase = newPhrase.CustomReplace(Request.Form["phrase-input"], Request.Form["word-replace"], Request.Form["new-word"], Request.Form["case-sensitivity"], Request.Form["partial-matches"]);
         return View["index.cshtml", resultPhrase];
       };
     }

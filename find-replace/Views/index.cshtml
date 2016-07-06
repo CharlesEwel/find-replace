@@ -15,18 +15,35 @@
     <p>New Word
       <input class="form-control" name="new-word">
     </p>
-    <div class="radio">
-      <label>
-        <input type="radio" name="case-sensitivity" value=false checked>
-        Case Insensitive
-      </label>
+    <div class="case-radio-btns">
+      <div class="radio">
+        <label>
+          <input type="radio" name="case-sensitivity" value=false checked>
+          Case Insensitive
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="case-sensitivity" value=true>
+          Case Sensitive
+        </label>
+      </div>
     </div>
-    <div class="radio">
-      <label>
-        <input type="radio" name="case-sensitivity" value=true>
-        Case Sensitive
-      </label>
+    <div class="matches-radio-btns">
+      <div class="radio">
+        <label>
+          <input type="radio" name="partial-matches" value=true checked>
+          Partial Matches
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="partial-matches" value=false>
+          No Partial Matches
+        </label>
+      </div>
     </div>
+
     <button type="submit" name="button">Submit</button>
   </form>
   <div class="new-phrase">
