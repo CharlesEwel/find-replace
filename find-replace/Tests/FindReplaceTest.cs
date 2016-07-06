@@ -7,7 +7,13 @@ namespace FindReplace.Objects
     public void CustomReplace_OneWord_1()
     {
       Phrase newPhrase = new Phrase ();
-      Assert.Equal("Hello universe", newPhrase.CustomReplace("Hello world", "world", "universe"));
+      Assert.Equal("Hello universe", newPhrase.CustomReplace("Hello world", "world", "universe", true));
+    }
+    [Fact]
+    public void CustomReplace_CaseInsensitive_Replaces()
+    {
+      Phrase newPhrase = new Phrase ();
+      Assert.Equal("Hello universe", newPhrase.CustomReplace("Hello World", "world", "universe", false));
     }
   }
 }
