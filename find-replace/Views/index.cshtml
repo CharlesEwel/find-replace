@@ -1,0 +1,23 @@
+<header>
+  <link rel="stylesheet" href="Content/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="Content/css/styles.css" type="text/css">
+  <title>Find and Replace</title>
+</header>
+<body>
+  <h1>Enter in your phrase!</h1>
+  <form class="form-group" action="/new-phrase" method="post">
+    <p>Phrase
+      <input class="form-control" name="phrase-input">
+    </p>
+    <p>Word to Replace in Phrase
+      <input class="form-control" name="word-replace">
+    </p>
+    <p>New Word
+      <input class="form-control" name="new-word">
+    </p>
+    <button type="submit" name="button">Submit</button>
+  </form>
+  <div class="new-phrase">
+    <h2>@Model</h2>
+  </div>
+</body>

@@ -6,10 +6,9 @@ namespace FindReplace.Objects
 {
   public class Phrase
   {
-    public string Replace(string inputPhrase, string wordToReplace, string alternativeWord)
+    public string CustomReplace(string inputPhrase, string wordToReplace, string newWord)
     {
-      return inputPhrase;
-      // return inputPhrase.Replace(wordToReplace, alternativeWord);
+      return inputPhrase.Replace(wordToReplace, newWord);
     }
   }
 }

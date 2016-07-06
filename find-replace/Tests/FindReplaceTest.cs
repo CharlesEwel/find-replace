@@ -4,10 +4,10 @@ namespace FindReplace.Objects
   public class FindReplaceTest
   {
     [Fact]
-    public void Replace_OneWord_1()
+    public void CustomReplace_OneWord_1()
     {
-      // Phrase newPhrase = new Phrase ();
-      // Assert.Equal("This round was a draw", newPhrase.Replace());
+      Phrase newPhrase = new Phrase ();
+      Assert.Equal("Hello universe", newPhrase.CustomReplace("Hello world", "world", "universe"));
     }
   }
 }
