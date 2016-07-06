@@ -27,18 +27,30 @@ namespace FindReplace.Objects
       }
       else
       {
-        Regex caseInsensitiveWord = new Regex(wordToReplace, RegexOptions.IgnoreCase);
-        string outputPhrase = caseInsensitiveWord.Replace(inputPhrase, newWord);
+        string firstReplaceLetter=wordToReplace.Substring(0,1);
+        string restOfReplaceWord=wordToReplace.Substring(1);
+        string UpperCaseReplaceWord=firstReplaceLetter.ToUpper()+restOfReplaceWord;
+        string LowerCaseReplaceWord=firstReplaceLetter.ToLower()+restOfReplaceWord;
+        string firstNewLetter=newWord.Substring(0,1);
+        string restOfNewWord=newWord.Substring(1);
+        string UpperCaseNewWord=firstNewLetter.ToUpper()+restOfNewWord;
+        string LowerCaseNewWord=firstNewLetter.ToLower()+restOfNewWord;
+        string UpperCaseReplaced = inputPhrase.Replace(LowerCaseReplaceWord, LowerCaseNewWord);
+        string FinalReplaced = UpperCaseReplaced.Replace(UpperCaseReplaceWord, UpperCaseNewWord);
         if (PartialMatches)
         {
-          return outputPhrase;
+          return FinalReplaced;
         }
         else
         {
-          Regex characterInFront = new Regex(@"([a-zA-Z])" + newWord);
-          Regex characterInBack = new Regex(newWord + @"([a-zA-Z])");
-          string frontReReplaced = characterInFront.Replace(outputPhrase, "$1" + wordToReplace);
-          string AllReReplaced = characterInBack.Replace(frontReReplaced, wordToReplace + "$1");
+          Regex upperCharacterInFront = new Regex(@"([a-zA-Z])" + UpperCaseNewWord);
+          Regex upperCharacterInBack = new Regex(UpperCaseNewWord + @"([a-zA-Z])");
+          Regex lowerCharacterInFront = new Regex(@"([a-zA-Z])" + LowerCaseReplaceWord);
+          Regex lowerCharacterInBack = new Regex(LowerCaseReplaceWord + @"([a-zA-Z])");
+          string upperFrontReReplaced = upperCharacterInFront.Replace(FinalReplaced, "$1" + UpperCaseReplaceWord);
+          string allFrontReReplaced = lowerCharacterInFront.Replace(upperFrontReReplaced, "$1" + LowerCaseReplaceWord);
+          string upperBackReReplaced = upperCharacterInBack.Replace(allFrontReReplaced, UpperCaseReplaceWord + "$1");
+          string AllReReplaced = lowerCharacterInBack.Replace(upperBackReReplaced, LowerCaseReplaceWord + "$1");
           return AllReReplaced;
         }
       }
